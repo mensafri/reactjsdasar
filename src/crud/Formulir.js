@@ -1,12 +1,12 @@
 import React from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 
-const Formulir = ({handleSubmit, nama, handleChange, deskripsi, harga}) => {
+const Formulir = ({handleSubmit, nama, handleChange, deskripsi, harga, id}) => {
   return (
     <div className="mt-5">
       <Row>
         <Col>
-          <h4>Tambah Data Baru</h4>
+          <h4>{id ? 'Edit Data' : 'Tambah Data'}</h4>
           <hr />
         </Col>
       </Row>

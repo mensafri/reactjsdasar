@@ -8,7 +8,7 @@ export default class Crud extends Component {
     super(props);
 
     this.state = {
-      makanan: [],
+      makanans: [],
       nama: "",
       deskripsi: "",
       harga: 0,
@@ -25,17 +25,35 @@ export default class Crud extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    this.setState({
-      makanan: [
-        ...this.state.makanan,
-        {
-          id: this.state.makanan.length + 1,
-          nama: this.state.nama,
-          deskripsi: this.state.deskripsi,
-          harga: this.state.harga,
-        },
-      ],
-    });
+    if (this.state.id === "") {
+      this.setState({
+        makanans: [
+          ...this.state.makanans,
+          {
+            id: this.state.makanans.length + 1,
+            nama: this.state.nama,
+            deskripsi: this.state.deskripsi,
+            harga: this.state.harga,
+          },
+        ],
+      });
+    } else {
+      const makananYangTidakDipilih = this.state.makanans
+        .filter((makanan) => makanan.id !== this.state.id)
+        .map((filterMakanan) => filterMakanan);
+
+      this.setState({
+        makanans: [
+          ...makananYangTidakDipilih,
+          {
+            id: this.state.makanans.length + 1,
+            nama: this.state.nama,
+            deskripsi: this.state.deskripsi,
+            harga: this.state.harga,
+          },
+        ],
+      });
+    }
 
     this.setState({
       nama: "",
@@ -45,12 +63,25 @@ export default class Crud extends Component {
     });
   };
 
+  editData = (id) => {
+    const makananYangDipilih = this.state.makanans
+      .filter((makanan) => makanan.id === id)
+      .map((filterMakanan) => filterMakanan);
+
+    this.setState({
+      nama: makananYangDipilih[0].nama,
+      deskripsi: makananYangDipilih[0].deskripsi,
+      harga: makananYangDipilih[0].harga,
+      id: makananYangDipilih[0].id,
+    });
+  };
+
   render() {
     return (
       <div>
         <NavbarComponent />
         <div className="container mt-4">
-          <Tabel makanans={this.state.makanan} />
+          <Tabel makanans={this.state.makanans} editData={this.editData} />
           <Formulir
             {...this.state}
             handleChange={this.handleChange}
