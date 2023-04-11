@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Map from './Map.js'
+import Lifecycle from './Lifecycle';
+// import Map from './Map.js'
 // import StateProps from './StateProps';
 // import App from './App';
 // import Variable from './Variable';
@@ -12,7 +13,8 @@ root.render(
     {/* <App /> */}
     {/* <Variable/> */}
     {/* <StateProps/> */}
-    <Map/>
+    {/* <Map/> */}
+    <Lifecycle/>
   </React.StrictMode>
 );
 
