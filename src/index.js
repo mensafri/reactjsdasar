@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Lifecycle from './Lifecycle';
-// import Map from './Map.js'
-// import StateProps from './StateProps';
+// import Lifecycle from './reactjsdasar/Lifecycle';
+// import Map from './reactjsdasar/Map.js'
+// import StateProps from './reactjsdasar/StateProps';
 // import App from './App';
-// import Variable from './Variable';
+// import Variable from './reactjsdasar/Variable';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Crud from './crud'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,7 +16,8 @@ root.render(
     {/* <Variable/> */}
     {/* <StateProps/> */}
     {/* <Map/> */}
-    <Lifecycle/>
+    {/* <Lifecycle/> */}
+    <Crud/>
   </React.StrictMode>
 );
 
