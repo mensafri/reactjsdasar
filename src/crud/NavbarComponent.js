@@ -10,8 +10,8 @@ import {
 
 const NavbarComponent = () => {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <div className="container">
         <Navbar.Brand href="#">CRUD ReactJS</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -43,10 +43,10 @@ const NavbarComponent = () => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-light">Search</Button>
           </Form>
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
   );
 };
